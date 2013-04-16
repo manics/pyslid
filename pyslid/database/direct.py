@@ -42,7 +42,9 @@ from os.path import exists, join
 import os
 
 NUM_DIGIT_COUNT = 20
-OMERO_CONTENTDB_PATH = os.environ['OMERO_CONTENTDB_PATH']
+#OMERO_CONTENTDB_PATH = os.environ['OMERO_CONTENTDB_PATH']
+OMERO_CONTENTDB_PATH = os.path.join(os.environ['HOME'], 'var', 'pyslid.data')
+print 'OMERO_CONTENTDB_PATH: %s' % OMERO_CONTENTDB_PATH
 if not OMERO_CONTENTDB_PATH.endswith(os.sep):
     OMERO_CONTENTDB_PATH = OMERO_CONTENTDB_PATH + os.sep
 
