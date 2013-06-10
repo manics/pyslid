@@ -147,7 +147,7 @@ def getFileID( conn, iid, set, field=True ):
   
     try:
        #database query  
-       result = query.projection( string, params )
+       result = query.projection(string, params, conn.SERVICE_OPTS)
    
        #get answer
        fid = result.pop().pop()._val._child._file._id._val
@@ -273,7 +273,7 @@ def hasFile( conn, fid ):
     string = "select count(*) from OriginalFile f where f.id = :fid";
     
     #database query
-    result = query.projection( string, params )
+    result = query.projection(string, params, conn.SERVICE_OPTS)
     
     #get answer
     answer = result.pop().pop()._val
@@ -340,7 +340,7 @@ def hasPlane( conn, plid ):
     string = "select count(*) from Plane p where p.id = :plid";
     
     #database query
-    result = query.projection( string, params )
+    result = query.projection(string, params, conn.SERVICE_OPTS)
     
     #get answer
     answer = result.pop().pop()._val
